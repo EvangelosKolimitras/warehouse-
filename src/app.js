@@ -16,6 +16,10 @@ class App extends React.Component{
         return(
             <div>
                 <Title main={this.state.title.main} sub={this.state.title.sub}/>
+                <FindItems />
+                <Options />
+                <AddOption />
+
             </div>
         )
     }

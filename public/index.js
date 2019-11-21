@@ -46,7 +46,7 @@ function (_React$Component) {
       return React.createElement("div", null, React.createElement(Title, {
         main: this.state.title.main,
         sub: this.state.title.sub
-      }));
+      }), React.createElement(FindItems, null), React.createElement(Options, null), React.createElement(AddOption, null));
     }
   }]);
 
