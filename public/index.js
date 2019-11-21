@@ -40,12 +40,13 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.addItemHandler = _this.addItemHandler.bind(_assertThisInitialized(_this));
     _this.deleItemsHandler = _this.deleItemsHandler.bind(_assertThisInitialized(_this));
+    _this.randomItemPicker = _this.randomItemPicker.bind(_assertThisInitialized(_this));
     _this.state = {
       title: {
         main: props.main,
         sub: props.sub
       },
-      items: [1]
+      items: ['one', 'two', 'three', 'four', 'five']
     };
     return _this;
   }
@@ -71,12 +72,19 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "randomItemPicker",
+    value: function randomItemPicker() {
+      var item = this.state.items[Math.round(Math.random() * this.state.items.length)];
+      console.log(item);
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement("div", null, React.createElement(Title, {
         main: this.state.title.main,
         sub: this.state.title.sub
       }), React.createElement(FindItems, {
+        randomItemPicker: this.randomItemPicker,
         items: this.state.items
       }), React.createElement(Items, {
         deleItemsHandler: this.deleItemsHandler,
@@ -135,7 +143,8 @@ function (_React$Component3) {
       return React.createElement("div", {
         className: "finditems"
       }, React.createElement("button", {
-        disabled: this.props.items.length === 0
+        disabled: this.props.items.length === 0,
+        onClick: this.props.randomItemPicker
       }, "Find an Item"));
     }
   }]);
@@ -163,11 +172,7 @@ function (_React$Component4) {
       }, React.createElement("button", {
         onClick: this.props.deleItemsHandler,
         disabled: this.props.items.length === 0
-      }, "Delete All items"), React.createElement("ul", null,
-      /*
-          TODO: The items list from the App's state
-      */
-      this.props.items.map(function (item) {
+      }, "Delete All items"), this.props.items.length === 0 ? React.createElement("p", null, "No items in the warehouse") : React.createElement("ul", null, this.props.items.map(function (item) {
         return React.createElement(Item, {
           key: Math.random(),
           item: item

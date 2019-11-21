@@ -5,12 +5,13 @@ class App extends React.Component{
         super(props)
         this.addItemHandler = this.addItemHandler.bind(this)
         this.deleItemsHandler = this.deleItemsHandler.bind(this)
+        this.randomItemPicker = this.randomItemPicker.bind(this)
         this.state = {
             title: {
                 main : props.main,
                 sub: props.sub
             },
-            items: [1]
+            items: ['one','two','three','four','five']
         }
     }
 
@@ -33,6 +34,11 @@ class App extends React.Component{
         } );
     }
 
+    randomItemPicker() {
+        const item = this.state.items[Math.round(Math.random() * this.state.items.length)]
+        console.log(item)
+    }
+
     render(){
         return(
             <div>
@@ -40,7 +46,7 @@ class App extends React.Component{
                     main={this.state.title.main}
                     sub={this.state.title.sub}
                 />
-                <FindItems items={this.state.items} />
+                <FindItems randomItemPicker={this.randomItemPicker} items={this.state.items} />
                 <Items deleItemsHandler={this.deleItemsHandler} items={this.state.items} />
                 <AddItem addItemHandler={this.addItemHandler}/>
             </div>
@@ -68,7 +74,10 @@ class FindItems extends React.Component {
     render() {
         return(
             <div className="finditems">
-                <button disabled={this.props.items.length === 0} >
+                <button
+                    disabled={this.props.items.length === 0}
+                    onClick={this.props.randomItemPicker}
+                >
                     Find an Item
                 </button>
             </div>
@@ -87,17 +96,18 @@ class Items extends React.Component{
                 >
                     Delete All items
                 </button>
-                <ul>
                 {
-                    /*
-                        TODO: The items list from the App's state
-                    */
+                    this.props.items.length === 0 ?
+                        <p>No items in the warehouse</p> :
+                        <ul>
+                {
                    this.props.items.map( item => {
 
                        return( <Item key={Math.random()} item={item} /> )
                    })
                 }
                 </ul>
+                }
             </div>
         )
     }
