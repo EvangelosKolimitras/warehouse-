@@ -35,6 +35,20 @@ class Title extends React.Component{
     }
 }
 
+class Options extends React.Component{
+    render() {
+        return(
+            <div>
+                {
+                    /*
+                        TODO: The options list from the App's state
+                    */
+                }
+            </div>
+        )
+    }
+}
+
 
 
 ReactDOM.render(

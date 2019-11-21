@@ -76,6 +76,27 @@ function (_React$Component2) {
   return Title;
 }(React.Component);
 
+var Options =
+/*#__PURE__*/
+function (_React$Component3) {
+  _inherits(Options, _React$Component3);
+
+  function Options() {
+    _classCallCheck(this, Options);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Options).apply(this, arguments));
+  }
+
+  _createClass(Options, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null);
+    }
+  }]);
+
+  return Options;
+}(React.Component);
+
 ReactDOM.render(React.createElement(App, {
   main: "Warehouse",
   sub: "A super warehouse "
