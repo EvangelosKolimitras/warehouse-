@@ -8,17 +8,20 @@ class App extends React.Component{
                 main : props.main,
                 sub: props.sub
             },
-            options: [1,2,3,4]
+            items: [1,2,3,4]
         }
     }
 
     render(){
         return(
             <div>
-                <Title main={this.state.title.main} sub={this.state.title.sub}/>
+                <Title
+                    main={this.state.title.main}
+                    sub={this.state.title.sub}
+                />
                 <FindItems />
-                <Options />
-                <AddOption />
+                <Items />
+                <AddItem />
 
             </div>
         )
@@ -27,9 +30,9 @@ class App extends React.Component{
 
 // Title Component
 class Title extends React.Component{
-    constructor(props){
-        super(props)
-    }
+    // constructor(props){
+    //     super(props)
+    // }
     render(){
         return(
             <div className="title">
@@ -53,14 +56,14 @@ class FindItems extends React.Component {
     }
 }
 
-// Options Component
-class Options extends React.Component{
+// Items Component
+class Items extends React.Component{
     render() {
         return(
             <div>
                 {
                     /*
-                        TODO: The options list from the App's state
+                        TODO: The items list from the App's state
                     */
                 }
             </div>
@@ -68,14 +71,14 @@ class Options extends React.Component{
     }
 }
 
-// Option Component
-class Option extends React.Component {
+// Item Component
+class Item extends React.Component {
     render(){
         return(
             <div>
                 {
                     /*
-                        TODO: Renders a single option
+                        TODO: Renders a single item
                     */
                 }
             </div>
@@ -83,14 +86,14 @@ class Option extends React.Component {
     }
 }
 
-// Add option Component
-class AddOption extends React.Component {
+// Add Item Component
+class AddItem extends React.Component {
     render() {
         return(
             <div>
                 {
                     /*
-                        TODO: Add option btn here
+                        TODO: Add item btn here
                     */
                 }
             </div>

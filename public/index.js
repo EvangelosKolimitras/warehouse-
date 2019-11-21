@@ -35,7 +35,7 @@ function (_React$Component) {
         main: props.main,
         sub: props.sub
       },
-      options: [1, 2, 3, 4]
+      items: [1, 2, 3, 4]
     };
     return _this;
   }
@@ -46,7 +46,7 @@ function (_React$Component) {
       return React.createElement("div", null, React.createElement(Title, {
         main: this.state.title.main,
         sub: this.state.title.sub
-      }), React.createElement(FindItems, null), React.createElement(Options, null), React.createElement(AddOption, null));
+      }), React.createElement(FindItems, null), React.createElement(Items, null), React.createElement(AddItem, null));
     }
   }]);
 
@@ -59,14 +59,17 @@ var Title =
 function (_React$Component2) {
   _inherits(Title, _React$Component2);
 
-  function Title(props) {
+  function Title() {
     _classCallCheck(this, Title);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Title).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Title).apply(this, arguments));
   }
 
   _createClass(Title, [{
     key: "render",
+    // constructor(props){
+    //     super(props)
+    // }
     value: function render() {
       return React.createElement("div", {
         className: "title"
@@ -97,72 +100,72 @@ function (_React$Component3) {
   }]);
 
   return FindItems;
-}(React.Component); // Options Component
+}(React.Component); // Items Component
 
 
-var Options =
+var Items =
 /*#__PURE__*/
 function (_React$Component4) {
-  _inherits(Options, _React$Component4);
+  _inherits(Items, _React$Component4);
 
-  function Options() {
-    _classCallCheck(this, Options);
+  function Items() {
+    _classCallCheck(this, Items);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Options).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Items).apply(this, arguments));
   }
 
-  _createClass(Options, [{
+  _createClass(Items, [{
     key: "render",
     value: function render() {
       return React.createElement("div", null);
     }
   }]);
 
-  return Options;
-}(React.Component); // Option Component
+  return Items;
+}(React.Component); // Item Component
 
 
-var Option =
+var Item =
 /*#__PURE__*/
 function (_React$Component5) {
-  _inherits(Option, _React$Component5);
+  _inherits(Item, _React$Component5);
 
-  function Option() {
-    _classCallCheck(this, Option);
+  function Item() {
+    _classCallCheck(this, Item);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Option).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Item).apply(this, arguments));
   }
 
-  _createClass(Option, [{
+  _createClass(Item, [{
     key: "render",
     value: function render() {
       return React.createElement("div", null);
     }
   }]);
 
-  return Option;
-}(React.Component); // Add option Component
+  return Item;
+}(React.Component); // Add Item Component
 
 
-var AddOption =
+var AddItem =
 /*#__PURE__*/
 function (_React$Component6) {
-  _inherits(AddOption, _React$Component6);
+  _inherits(AddItem, _React$Component6);
 
-  function AddOption() {
-    _classCallCheck(this, AddOption);
+  function AddItem() {
+    _classCallCheck(this, AddItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AddOption).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(AddItem).apply(this, arguments));
   }
 
-  _createClass(AddOption, [{
+  _createClass(AddItem, [{
     key: "render",
     value: function render() {
       return React.createElement("div", null);
     }
   }]);
 
-  return AddOption;
+  return AddItem;
 }(React.Component);
 
 ReactDOM.render(React.createElement(App, {
