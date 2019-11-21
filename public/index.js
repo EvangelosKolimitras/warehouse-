@@ -39,6 +39,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.addItemHandler = _this.addItemHandler.bind(_assertThisInitialized(_this));
+    _this.deleItemsHandler = _this.deleItemsHandler.bind(_assertThisInitialized(_this));
     _this.state = {
       title: {
         main: props.main,
@@ -59,12 +60,24 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "deleItemsHandler",
+    value: function deleItemsHandler() {
+      var items = _toConsumableArray(this.state.items);
+
+      this.setState(function () {
+        return {
+          items: []
+        };
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement("div", null, React.createElement(Title, {
         main: this.state.title.main,
         sub: this.state.title.sub
       }), React.createElement(FindItems, null), React.createElement(Items, {
+        deleItemsHandler: this.deleItemsHandler,
         items: this.state.items
       }), React.createElement(AddItem, {
         addItemHandler: this.addItemHandler
@@ -143,7 +156,9 @@ function (_React$Component4) {
     value: function render() {
       return React.createElement("div", {
         className: "items"
-      }, React.createElement("ul", null,
+      }, React.createElement("button", {
+        onClick: this.props.deleItemsHandler
+      }, "Delete All items"), React.createElement("ul", null,
       /*
           TODO: The items list from the App's state
       */
@@ -212,6 +227,7 @@ function (_React$Component6) {
 
       if (item) {
         this.props.addItemHandler(item);
+        event.target.elements.i.value = "";
       }
     }
   }, {

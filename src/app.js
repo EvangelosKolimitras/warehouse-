@@ -4,6 +4,7 @@ class App extends React.Component{
     constructor(props) {
         super(props)
         this.addItemHandler = this.addItemHandler.bind(this)
+        this.deleItemsHandler = this.deleItemsHandler.bind(this)
         this.state = {
             title: {
                 main : props.main,
@@ -23,6 +24,15 @@ class App extends React.Component{
 
     }
 
+    deleItemsHandler() {
+        const items = [...this.state.items]
+        this.setState( () => {
+            return {
+                items: []
+            }
+        } );
+    }
+
     render(){
         return(
             <div>
@@ -31,7 +41,7 @@ class App extends React.Component{
                     sub={this.state.title.sub}
                 />
                 <FindItems />
-                <Items items={this.state.items} />
+                <Items deleItemsHandler={this.deleItemsHandler} items={this.state.items} />
                 <AddItem addItemHandler={this.addItemHandler}/>
             </div>
         )
@@ -71,6 +81,7 @@ class Items extends React.Component{
     render() {
         return(
             <div className="items">
+                <button onClick={this.props.deleItemsHandler}>Delete All items</button>
                 <ul>
                 {
                     /*
@@ -117,6 +128,7 @@ class AddItem extends React.Component {
         const item = event.target.elements.i.value
         if(item){
             this.props.addItemHandler(item)
+            event.target.elements.i.value = ""
         }
     }
 
