@@ -20,7 +20,7 @@ class App extends React.Component{
                     sub={this.state.title.sub}
                 />
                 <FindItems />
-                <Items />
+                <Items items={this.state.items} />
                 <AddItem />
 
             </div>
@@ -61,11 +61,25 @@ class Items extends React.Component{
     render() {
         return(
             <div>
+                <ul>
                 {
                     /*
                         TODO: The items list from the App's state
                     */
+                   this.props.items.map( item => {
+                       return(
+                            <li
+                                // A random key for uniqueness
+                                key={Math.random()}
+                            >
+                                Item - {
+                                    item
+                                }
+                            </li>
+                       )
+                   })
                 }
+                </ul>
             </div>
         )
     }

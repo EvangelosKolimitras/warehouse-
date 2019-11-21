@@ -46,7 +46,9 @@ function (_React$Component) {
       return React.createElement("div", null, React.createElement(Title, {
         main: this.state.title.main,
         sub: this.state.title.sub
-      }), React.createElement(FindItems, null), React.createElement(Items, null), React.createElement(AddItem, null));
+      }), React.createElement(FindItems, null), React.createElement(Items, {
+        items: this.state.items
+      }), React.createElement(AddItem, null));
     }
   }]);
 
@@ -117,7 +119,16 @@ function (_React$Component4) {
   _createClass(Items, [{
     key: "render",
     value: function render() {
-      return React.createElement("div", null);
+      return React.createElement("div", null, React.createElement("ul", null,
+      /*
+          TODO: The items list from the App's state
+      */
+      this.props.items.map(function (item) {
+        return React.createElement("li", {
+          // A random key for uniqueness
+          key: Math.random()
+        }, "Item - ", item);
+      })));
     }
   }]);
 
