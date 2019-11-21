@@ -3,13 +3,24 @@
 class App extends React.Component{
     constructor(props) {
         super(props)
+        this.addItemHandler = this.addItemHandler.bind(this)
         this.state = {
             title: {
                 main : props.main,
                 sub: props.sub
             },
-            items: [1,2,3,4]
+            items: []
         }
+    }
+
+    addItemHandler(item) {
+
+        this.setState( prevState => {
+            return {
+                items : [...prevState.items, item]
+            }
+        } )
+
     }
 
     render(){
@@ -21,8 +32,7 @@ class App extends React.Component{
                 />
                 <FindItems />
                 <Items items={this.state.items} />
-                <AddItem />
-
+                <AddItem addItemHandler={this.addItemHandler}/>
             </div>
         )
     }
@@ -47,7 +57,7 @@ class Title extends React.Component{
 class FindItems extends React.Component {
     render() {
         return(
-            <div>
+            <div className="finditems">
                 <button>
                     Find an Item
                 </button>
@@ -60,7 +70,7 @@ class FindItems extends React.Component {
 class Items extends React.Component{
     render() {
         return(
-            <div>
+            <div className="items">
                 <ul>
                 {
                     /*
@@ -68,10 +78,7 @@ class Items extends React.Component{
                     */
                    this.props.items.map( item => {
 
-                       return(
-                        <Item key={Math.random()} item={item} />
-
-                       )
+                       return( <Item key={Math.random()} item={item} /> )
                    })
                 }
                 </ul>
@@ -98,20 +105,38 @@ class Item extends React.Component {
 
 // Add Item Component
 class AddItem extends React.Component {
+
+    constructor(props){
+        super(props)
+        this.addItemHandler = this.addItemHandler.bind(this)
+    }
+
+    addItemHandler(event){
+        event.preventDefault()
+        // event.target.elements.item.value
+        const item = event.target.elements.i.value
+        if(item){
+            this.props.addItemHandler(item)
+        }
+    }
+
     render() {
         return(
-            <div>
+            <div className="additem">
                 {
                     /*
-                        TODO: Add item btn here
+                        TODO: Add item form here
                     */
                 }
+                <form onSubmit={this.addItemHandler}>
+                    {/* below i = item */}
+                    <input type="text" name="i" />
+                    <button>Add Item</button>
+                </form>
             </div>
         )
     }
 }
-
-
 
 ReactDOM.render(
     <App

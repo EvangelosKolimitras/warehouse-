@@ -2,6 +2,14 @@
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -10,9 +18,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -30,17 +38,27 @@ function (_React$Component) {
     _classCallCheck(this, App);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this.addItemHandler = _this.addItemHandler.bind(_assertThisInitialized(_this));
     _this.state = {
       title: {
         main: props.main,
         sub: props.sub
       },
-      items: [1, 2, 3, 4]
+      items: []
     };
     return _this;
   }
 
   _createClass(App, [{
+    key: "addItemHandler",
+    value: function addItemHandler(item) {
+      this.setState(function (prevState) {
+        return {
+          items: [].concat(_toConsumableArray(prevState.items), [item])
+        };
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement("div", null, React.createElement(Title, {
@@ -48,7 +66,9 @@ function (_React$Component) {
         sub: this.state.title.sub
       }), React.createElement(FindItems, null), React.createElement(Items, {
         items: this.state.items
-      }), React.createElement(AddItem, null));
+      }), React.createElement(AddItem, {
+        addItemHandler: this.addItemHandler
+      }));
     }
   }]);
 
@@ -97,7 +117,9 @@ function (_React$Component3) {
   _createClass(FindItems, [{
     key: "render",
     value: function render() {
-      return React.createElement("div", null, React.createElement("button", null, "Find an Item"));
+      return React.createElement("div", {
+        className: "finditems"
+      }, React.createElement("button", null, "Find an Item"));
     }
   }]);
 
@@ -119,7 +141,9 @@ function (_React$Component4) {
   _createClass(Items, [{
     key: "render",
     value: function render() {
-      return React.createElement("div", null, React.createElement("ul", null,
+      return React.createElement("div", {
+        className: "items"
+      }, React.createElement("ul", null,
       /*
           TODO: The items list from the App's state
       */
@@ -169,16 +193,38 @@ var AddItem =
 function (_React$Component6) {
   _inherits(AddItem, _React$Component6);
 
-  function AddItem() {
+  function AddItem(props) {
+    var _this2;
+
     _classCallCheck(this, AddItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AddItem).apply(this, arguments));
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(AddItem).call(this, props));
+    _this2.addItemHandler = _this2.addItemHandler.bind(_assertThisInitialized(_this2));
+    return _this2;
   }
 
   _createClass(AddItem, [{
+    key: "addItemHandler",
+    value: function addItemHandler(event) {
+      event.preventDefault(); // event.target.elements.item.value
+
+      var item = event.target.elements.i.value;
+
+      if (item) {
+        this.props.addItemHandler(item);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", null);
+      return React.createElement("div", {
+        className: "additem"
+      }, React.createElement("form", {
+        onSubmit: this.addItemHandler
+      }, React.createElement("input", {
+        type: "text",
+        name: "i"
+      }), React.createElement("button", null, "Add Item")));
     }
   }]);
 
