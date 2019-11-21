@@ -64,6 +64,21 @@ class Options extends React.Component{
     }
 }
 
+// Option Component
+class Option extends React.Component {
+    render(){
+        return(
+            <div>
+                {
+                    /*
+                        TODO: Renders a single option
+                    */
+                }
+            </div>
+        )
+    }
+}
+
 // Add option Component
 class AddOption extends React.Component {
     render() {
