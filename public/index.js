@@ -45,7 +45,7 @@ function (_React$Component) {
         main: props.main,
         sub: props.sub
       },
-      items: []
+      items: [1]
     };
     return _this;
   }
@@ -76,7 +76,9 @@ function (_React$Component) {
       return React.createElement("div", null, React.createElement(Title, {
         main: this.state.title.main,
         sub: this.state.title.sub
-      }), React.createElement(FindItems, null), React.createElement(Items, {
+      }), React.createElement(FindItems, {
+        items: this.state.items
+      }), React.createElement(Items, {
         deleItemsHandler: this.deleItemsHandler,
         items: this.state.items
       }), React.createElement(AddItem, {
@@ -132,7 +134,9 @@ function (_React$Component3) {
     value: function render() {
       return React.createElement("div", {
         className: "finditems"
-      }, React.createElement("button", null, "Find an Item"));
+      }, React.createElement("button", {
+        disabled: this.props.items.length === 0
+      }, "Find an Item"));
     }
   }]);
 
@@ -157,7 +161,8 @@ function (_React$Component4) {
       return React.createElement("div", {
         className: "items"
       }, React.createElement("button", {
-        onClick: this.props.deleItemsHandler
+        onClick: this.props.deleItemsHandler,
+        disabled: this.props.items.length === 0
       }, "Delete All items"), React.createElement("ul", null,
       /*
           TODO: The items list from the App's state
@@ -191,11 +196,7 @@ function (_React$Component5) {
     value: function render() {
       return React.createElement("li", {
         className: "item"
-      },
-      /*
-          TODO: Renders a single item
-      */
-      this.props.item);
+      }, " ", this.props.item, " ");
     }
   }]);
 

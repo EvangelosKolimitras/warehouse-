@@ -10,7 +10,7 @@ class App extends React.Component{
                 main : props.main,
                 sub: props.sub
             },
-            items: []
+            items: [1]
         }
     }
 
@@ -40,7 +40,7 @@ class App extends React.Component{
                     main={this.state.title.main}
                     sub={this.state.title.sub}
                 />
-                <FindItems />
+                <FindItems items={this.state.items} />
                 <Items deleItemsHandler={this.deleItemsHandler} items={this.state.items} />
                 <AddItem addItemHandler={this.addItemHandler}/>
             </div>
@@ -68,7 +68,7 @@ class FindItems extends React.Component {
     render() {
         return(
             <div className="finditems">
-                <button>
+                <button disabled={this.props.items.length === 0} >
                     Find an Item
                 </button>
             </div>
@@ -81,7 +81,12 @@ class Items extends React.Component{
     render() {
         return(
             <div className="items">
-                <button onClick={this.props.deleItemsHandler}>Delete All items</button>
+                <button
+                    onClick={this.props.deleItemsHandler}
+                    disabled={this.props.items.length === 0}
+                >
+                    Delete All items
+                </button>
                 <ul>
                 {
                     /*
@@ -101,17 +106,10 @@ class Items extends React.Component{
 // Item Component
 class Item extends React.Component {
     render(){
-        return(
-            <li className="item" >
-                {
-                    /*
-                        TODO: Renders a single item
-                    */
-                    this.props.item
-                }
-            </li>
+        return (
+            <li className="item" > { this.props.item } </li>
         )
-    }
+     }
 }
 
 // Add Item Component
