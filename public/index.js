@@ -18,6 +18,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+// Application Component
 var App =
 /*#__PURE__*/
 function (_React$Component) {
@@ -74,13 +75,35 @@ function (_React$Component2) {
   }]);
 
   return Title;
+}(React.Component); // FindItems action btn Component
+
+
+var FindItems =
+/*#__PURE__*/
+function (_React$Component3) {
+  _inherits(FindItems, _React$Component3);
+
+  function FindItems() {
+    _classCallCheck(this, FindItems);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(FindItems).apply(this, arguments));
+  }
+
+  _createClass(FindItems, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null, React.createElement("button", null, "Find an Item"));
+    }
+  }]);
+
+  return FindItems;
 }(React.Component); // Options Component
 
 
 var Options =
 /*#__PURE__*/
-function (_React$Component3) {
-  _inherits(Options, _React$Component3);
+function (_React$Component4) {
+  _inherits(Options, _React$Component4);
 
   function Options() {
     _classCallCheck(this, Options);
@@ -101,8 +124,8 @@ function (_React$Component3) {
 
 var AddOption =
 /*#__PURE__*/
-function (_React$Component4) {
-  _inherits(AddOption, _React$Component4);
+function (_React$Component5) {
+  _inherits(AddOption, _React$Component5);
 
   function AddOption() {
     _classCallCheck(this, AddOption);

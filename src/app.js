@@ -1,4 +1,5 @@
 
+// Application Component
 class App extends React.Component{
     constructor(props) {
         super(props)
@@ -30,6 +31,19 @@ class Title extends React.Component{
             <div className="title">
                 <h1>{this.props.main}</h1>
                 <h5>{this.props.sub}</h5>
+            </div>
+        )
+    }
+}
+
+// FindItems action btn Component
+class FindItems extends React.Component {
+    render() {
+        return(
+            <div>
+                <button>
+                    Find an Item
+                </button>
             </div>
         )
     }
