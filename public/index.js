@@ -74,7 +74,8 @@ function (_React$Component2) {
   }]);
 
   return Title;
-}(React.Component);
+}(React.Component); // Options Component
+
 
 var Options =
 /*#__PURE__*/
@@ -95,6 +96,28 @@ function (_React$Component3) {
   }]);
 
   return Options;
+}(React.Component); // Add option Component
+
+
+var AddOption =
+/*#__PURE__*/
+function (_React$Component4) {
+  _inherits(AddOption, _React$Component4);
+
+  function AddOption() {
+    _classCallCheck(this, AddOption);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(AddOption).apply(this, arguments));
+  }
+
+  _createClass(AddOption, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null);
+    }
+  }]);
+
+  return AddOption;
 }(React.Component);
 
 ReactDOM.render(React.createElement(App, {

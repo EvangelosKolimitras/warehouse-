@@ -35,6 +35,7 @@ class Title extends React.Component{
     }
 }
 
+// Options Component
 class Options extends React.Component{
     render() {
         return(
@@ -42,6 +43,21 @@ class Options extends React.Component{
                 {
                     /*
                         TODO: The options list from the App's state
+                    */
+                }
+            </div>
+        )
+    }
+}
+
+// Add option Component
+class AddOption extends React.Component {
+    render() {
+        return(
+            <div>
+                {
+                    /*
+                        TODO: Add option btn here
                     */
                 }
             </div>
