@@ -124,10 +124,10 @@ function (_React$Component4) {
           TODO: The items list from the App's state
       */
       this.props.items.map(function (item) {
-        return React.createElement("li", {
-          // A random key for uniqueness
-          key: Math.random()
-        }, "Item - ", item);
+        return React.createElement(Item, {
+          key: Math.random(),
+          item: item
+        });
       })));
     }
   }]);
@@ -150,7 +150,13 @@ function (_React$Component5) {
   _createClass(Item, [{
     key: "render",
     value: function render() {
-      return React.createElement("div", null);
+      return React.createElement("li", {
+        className: "item"
+      },
+      /*
+          TODO: Renders a single item
+      */
+      this.props.item);
     }
   }]);
 

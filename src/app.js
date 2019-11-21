@@ -67,15 +67,10 @@ class Items extends React.Component{
                         TODO: The items list from the App's state
                     */
                    this.props.items.map( item => {
+
                        return(
-                            <li
-                                // A random key for uniqueness
-                                key={Math.random()}
-                            >
-                                Item - {
-                                    item
-                                }
-                            </li>
+                        <Item key={Math.random()} item={item} />
+
                        )
                    })
                 }
@@ -89,13 +84,14 @@ class Items extends React.Component{
 class Item extends React.Component {
     render(){
         return(
-            <div>
+            <li className="item" >
                 {
                     /*
                         TODO: Renders a single item
                     */
+                    this.props.item
                 }
-            </div>
+            </li>
         )
     }
 }
