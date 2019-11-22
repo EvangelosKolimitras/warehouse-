@@ -139,34 +139,17 @@ var Items = function Items(props) {
 }; // Item Component
 
 
-var Item =
-/*#__PURE__*/
-function (_React$Component2) {
-  _inherits(Item, _React$Component2);
-
-  function Item() {
-    _classCallCheck(this, Item);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Item).apply(this, arguments));
-  }
-
-  _createClass(Item, [{
-    key: "render",
-    value: function render() {
-      return React.createElement("li", {
-        className: "item"
-      }, " ", this.props.item, " ");
-    }
-  }]);
-
-  return Item;
-}(React.Component); // Add Item Component
+var Item = function Item(props) {
+  return React.createElement("li", {
+    className: "item"
+  }, " ", props.item, " ");
+}; // Add Item Component
 
 
 var AddItem =
 /*#__PURE__*/
-function (_React$Component3) {
-  _inherits(AddItem, _React$Component3);
+function (_React$Component2) {
+  _inherits(AddItem, _React$Component2);
 
   function AddItem(props) {
     var _this2;

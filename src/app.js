@@ -123,13 +123,9 @@ const Items = props => (
 )
 
 // Item Component
-class Item extends React.Component {
-    render(){
-        return (
-            <li className="item" > { this.props.item } </li>
-        )
-     }
-}
+const Item = props => (
+    <li className="item" > { props.item } </li>
+)
 
 // Add Item Component
 class AddItem extends React.Component {
