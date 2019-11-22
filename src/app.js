@@ -6,6 +6,7 @@ class App extends React.Component{
         this.addItemHandler = this.addItemHandler.bind(this)
         this.deleItemsHandler = this.deleItemsHandler.bind(this)
         this.randomItemPicker = this.randomItemPicker.bind(this)
+        this.deleteItemHandler = this.deleteItemHandler.bind(this)
         this.state = {
             title: {
                 main : props.main,
@@ -34,6 +35,11 @@ class App extends React.Component{
 
     deleItemsHandler() { this.setState( () => ({ items: [] }) ); }
 
+    deleteItemHandler(item) {
+        this.setState( prevState => ({
+            items: prevState.items.filter(i => i !== item )
+        }))
+    }
 
     randomItemPicker() {
         const item = this.state.items[Math.round(Math.random() * this.state.items.length)]
@@ -42,7 +48,6 @@ class App extends React.Component{
 
     render(){
         return(
-
             <>
                 <Title
                     main={this.state.title.main}
@@ -57,6 +62,7 @@ class App extends React.Component{
                 <Items
                     deleItemsHandler={this.deleItemsHandler}
                     items={this.state.items}
+                    deleteItemHandler={this.deleteItemHandler}
                 />
 
                 <AddItem
@@ -111,7 +117,13 @@ const Items = props => (
         {
            props.items.map( item => {
 
-               return( <Item key={Math.random()} item={item} /> )
+               return(
+                    <Item
+                        key={Math.random()}
+                        deleteItemHandler={props.deleteItemHandler}
+                        item={item} />
+
+                )
            })
         }
         </ul>
@@ -121,7 +133,18 @@ const Items = props => (
 
 // Item Component
 const Item = props => (
-    <li className="item" > { props.item } </li>
+    <li>
+        { props.item }
+        <button
+            onClick={
+                e => {
+                    props.deleteItemHandler(props.item)
+                }
+            }>
+                rm
+            </button>
+    </li>
+
 )
 
 // Add Item Component

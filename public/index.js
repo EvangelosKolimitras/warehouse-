@@ -41,6 +41,7 @@ function (_React$Component) {
     _this.addItemHandler = _this.addItemHandler.bind(_assertThisInitialized(_this));
     _this.deleItemsHandler = _this.deleItemsHandler.bind(_assertThisInitialized(_this));
     _this.randomItemPicker = _this.randomItemPicker.bind(_assertThisInitialized(_this));
+    _this.deleteItemHandler = _this.deleteItemHandler.bind(_assertThisInitialized(_this));
     _this.state = {
       title: {
         main: props.main,
@@ -80,6 +81,17 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "deleteItemHandler",
+    value: function deleteItemHandler(item) {
+      this.setState(function (prevState) {
+        return {
+          items: prevState.items.filter(function (i) {
+            return i !== item;
+          })
+        };
+      });
+    }
+  }, {
     key: "randomItemPicker",
     value: function randomItemPicker() {
       var item = this.state.items[Math.round(Math.random() * this.state.items.length)];
@@ -96,7 +108,8 @@ function (_React$Component) {
         items: this.state.items
       }), React.createElement(Items, {
         deleItemsHandler: this.deleItemsHandler,
-        items: this.state.items
+        items: this.state.items,
+        deleteItemHandler: this.deleteItemHandler
       }), React.createElement(AddItem, {
         addItemHandler: this.addItemHandler
       }));
@@ -130,6 +143,7 @@ var Items = function Items(props) {
   }, "Delete All items"), props.items.length === 0 ? React.createElement("p", null, "No items in the warehouse") : React.createElement("ul", null, props.items.map(function (item) {
     return React.createElement(Item, {
       key: Math.random(),
+      deleteItemHandler: props.deleteItemHandler,
       item: item
     });
   })));
@@ -137,9 +151,11 @@ var Items = function Items(props) {
 
 
 var Item = function Item(props) {
-  return React.createElement("li", {
-    className: "item"
-  }, " ", props.item, " ");
+  return React.createElement("li", null, props.item, React.createElement("button", {
+    onClick: function onClick(e) {
+      props.deleteItemHandler(props.item);
+    }
+  }, "rm"));
 }; // Add Item Component
 
 
