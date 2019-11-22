@@ -88,7 +88,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", null, React.createElement(Title, {
+      return React.createElement(React.Fragment, null, React.createElement(Title, {
         main: this.state.title.main,
         sub: this.state.title.sub
       }), React.createElement(FindItems, {
@@ -108,16 +108,12 @@ function (_React$Component) {
 
 
 var Title = function Title(props) {
-  return React.createElement("div", {
-    className: "title"
-  }, React.createElement("h1", null, props.main), React.createElement("h5", null, props.sub));
+  return React.createElement(React.Fragment, null, React.createElement("h1", null, props.main), React.createElement("h5", null, props.sub));
 }; // FindItems action btn Component
 
 
 var FindItems = function FindItems(props) {
-  return React.createElement("div", {
-    className: "finditems"
-  }, React.createElement("button", {
+  return React.createElement(React.Fragment, null, React.createElement("button", {
     disabled: props.items.length === 0,
     onClick: props.randomItemPicker
   }, "Find an Item"));
@@ -125,9 +121,7 @@ var FindItems = function FindItems(props) {
 
 
 var Items = function Items(props) {
-  return React.createElement("div", {
-    className: "items"
-  }, React.createElement("button", {
+  return React.createElement(React.Fragment, null, React.createElement("button", {
     onClick: props.deleItemsHandler,
     disabled: props.items.length === 0
   }, "Delete All items"), props.items.length === 0 ? React.createElement("p", null, "No items in the warehouse") : React.createElement("ul", null, props.items.map(function (item) {
@@ -178,9 +172,7 @@ function (_React$Component2) {
   }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", {
-        className: "additem"
-      }, this.state.e && React.createElement("p", null, this.state.e), React.createElement("form", {
+      return React.createElement(React.Fragment, null, this.state.e && React.createElement("p", null, this.state.e), React.createElement("form", {
         onSubmit: this.addItemHandler
       }, React.createElement("input", {
         type: "text",

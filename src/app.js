@@ -50,7 +50,7 @@ class App extends React.Component{
     render(){
         return(
 
-            <div>
+            <>
                 <Title
                     main={this.state.title.main}
                     sub={this.state.title.sub}
@@ -70,7 +70,7 @@ class App extends React.Component{
                     addItemHandler={this.addItemHandler}
                 />
 
-            </div>
+            </>
 
         )
     }
@@ -78,29 +78,29 @@ class App extends React.Component{
 
 // Title Component
 const Title = props => (
-    <div className="title">
+    <>
         <h1>{props.main}</h1>
         <h5>{props.sub}</h5>
-    </div>
+    </>
 )
 
 // FindItems action btn Component
 
 const FindItems = props => (
-    <div className="finditems">
+    <>
         <button
             disabled={props.items.length === 0}
             onClick={props.randomItemPicker}
         >
             Find an Item
         </button>
-    </div>
+    </>
 )
 
 
 // Items Component
 const Items = props => (
-    <div className="items">
+    <>
         <button
             onClick={props.deleItemsHandler}
             disabled={props.items.length === 0}
@@ -119,7 +119,7 @@ const Items = props => (
         }
         </ul>
         }
-    </div>
+    </>
 )
 
 // Item Component
@@ -136,6 +136,7 @@ class AddItem extends React.Component {
         this.state = {
             e : undefined
         }
+
     }
 
     addItemHandler(event){
@@ -149,14 +150,14 @@ class AddItem extends React.Component {
 
     render() {
         return(
-            <div className="additem">
+            <>
                 {this.state.e && <p>{this.state.e}</p>}
                 <form onSubmit={this.addItemHandler}>
                     {/* below i = item */}
                     <input type="text" name="i" />
                     <button>Add Item</button>
                 </form>
-            </div>
+            </>
         )
     }
 }
