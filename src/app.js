@@ -85,20 +85,18 @@ const Title = props => (
 )
 
 // FindItems action btn Component
-class FindItems extends React.Component {
-    render() {
-        return(
-            <div className="finditems">
-                <button
-                    disabled={this.props.items.length === 0}
-                    onClick={this.props.randomItemPicker}
-                >
-                    Find an Item
-                </button>
-            </div>
-        )
-    }
-}
+
+const FindItems = props => (
+    <div className="finditems">
+        <button
+            disabled={props.items.length === 0}
+            onClick={props.randomItemPicker}
+        >
+            Find an Item
+        </button>
+    </div>
+)
+
 
 // Items Component
 class Items extends React.Component{
