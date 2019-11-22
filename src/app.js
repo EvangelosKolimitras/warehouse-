@@ -102,17 +102,17 @@ const FindItems = props => (
 const Items = props => (
     <div className="items">
         <button
-            onClick={this.props.deleItemsHandler}
-            disabled={this.props.items.length === 0}
+            onClick={props.deleItemsHandler}
+            disabled={props.items.length === 0}
         >
             Delete All items
         </button>
         {
-            this.props.items.length === 0 ?
+            props.items.length === 0 ?
                 <p>No items in the warehouse</p> :
                 <ul>
         {
-           this.props.items.map( item => {
+           props.items.map( item => {
 
                return( <Item key={Math.random()} item={item} /> )
            })
