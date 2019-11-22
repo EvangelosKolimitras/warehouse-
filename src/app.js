@@ -77,16 +77,12 @@ class App extends React.Component{
 }
 
 // Title Component
-class Title extends React.Component{
-    render(){
-        return(
-            <div className="title">
-                <h1>{this.props.main}</h1>
-                <h5>{this.props.sub}</h5>
-            </div>
-        )
-    }
-}
+const Title = props => (
+    <div className="title">
+        <h1>{props.main}</h1>
+        <h5>{props.sub}</h5>
+    </div>
+)
 
 // FindItems action btn Component
 class FindItems extends React.Component {

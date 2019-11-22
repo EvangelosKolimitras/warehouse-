@@ -107,34 +107,17 @@ function (_React$Component) {
 }(React.Component); // Title Component
 
 
-var Title =
-/*#__PURE__*/
-function (_React$Component2) {
-  _inherits(Title, _React$Component2);
-
-  function Title() {
-    _classCallCheck(this, Title);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Title).apply(this, arguments));
-  }
-
-  _createClass(Title, [{
-    key: "render",
-    value: function render() {
-      return React.createElement("div", {
-        className: "title"
-      }, React.createElement("h1", null, this.props.main), React.createElement("h5", null, this.props.sub));
-    }
-  }]);
-
-  return Title;
-}(React.Component); // FindItems action btn Component
+var Title = function Title(props) {
+  return React.createElement("div", {
+    className: "title"
+  }, React.createElement("h1", null, props.main), React.createElement("h5", null, props.sub));
+}; // FindItems action btn Component
 
 
 var FindItems =
 /*#__PURE__*/
-function (_React$Component3) {
-  _inherits(FindItems, _React$Component3);
+function (_React$Component2) {
+  _inherits(FindItems, _React$Component2);
 
   function FindItems() {
     _classCallCheck(this, FindItems);
@@ -160,8 +143,8 @@ function (_React$Component3) {
 
 var Items =
 /*#__PURE__*/
-function (_React$Component4) {
-  _inherits(Items, _React$Component4);
+function (_React$Component3) {
+  _inherits(Items, _React$Component3);
 
   function Items() {
     _classCallCheck(this, Items);
@@ -192,8 +175,8 @@ function (_React$Component4) {
 
 var Item =
 /*#__PURE__*/
-function (_React$Component5) {
-  _inherits(Item, _React$Component5);
+function (_React$Component4) {
+  _inherits(Item, _React$Component4);
 
   function Item() {
     _classCallCheck(this, Item);
@@ -216,8 +199,8 @@ function (_React$Component5) {
 
 var AddItem =
 /*#__PURE__*/
-function (_React$Component6) {
-  _inherits(AddItem, _React$Component6);
+function (_React$Component5) {
+  _inherits(AddItem, _React$Component5);
 
   function AddItem(props) {
     var _this2;
