@@ -1,5 +1,7 @@
 "use strict";
 
+var _this2 = void 0;
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -124,42 +126,25 @@ var FindItems = function FindItems(props) {
 }; // Items Component
 
 
-var Items =
-/*#__PURE__*/
-function (_React$Component2) {
-  _inherits(Items, _React$Component2);
-
-  function Items() {
-    _classCallCheck(this, Items);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Items).apply(this, arguments));
-  }
-
-  _createClass(Items, [{
-    key: "render",
-    value: function render() {
-      return React.createElement("div", {
-        className: "items"
-      }, React.createElement("button", {
-        onClick: this.props.deleItemsHandler,
-        disabled: this.props.items.length === 0
-      }, "Delete All items"), this.props.items.length === 0 ? React.createElement("p", null, "No items in the warehouse") : React.createElement("ul", null, this.props.items.map(function (item) {
-        return React.createElement(Item, {
-          key: Math.random(),
-          item: item
-        });
-      })));
-    }
-  }]);
-
-  return Items;
-}(React.Component); // Item Component
+var Items = function Items(props) {
+  return React.createElement("div", {
+    className: "items"
+  }, React.createElement("button", {
+    onClick: _this2.props.deleItemsHandler,
+    disabled: _this2.props.items.length === 0
+  }, "Delete All items"), _this2.props.items.length === 0 ? React.createElement("p", null, "No items in the warehouse") : React.createElement("ul", null, _this2.props.items.map(function (item) {
+    return React.createElement(Item, {
+      key: Math.random(),
+      item: item
+    });
+  })));
+}; // Item Component
 
 
 var Item =
 /*#__PURE__*/
-function (_React$Component3) {
-  _inherits(Item, _React$Component3);
+function (_React$Component2) {
+  _inherits(Item, _React$Component2);
 
   function Item() {
     _classCallCheck(this, Item);
@@ -182,20 +167,20 @@ function (_React$Component3) {
 
 var AddItem =
 /*#__PURE__*/
-function (_React$Component4) {
-  _inherits(AddItem, _React$Component4);
+function (_React$Component3) {
+  _inherits(AddItem, _React$Component3);
 
   function AddItem(props) {
-    var _this2;
+    var _this3;
 
     _classCallCheck(this, AddItem);
 
-    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(AddItem).call(this, props));
-    _this2.addItemHandler = _this2.addItemHandler.bind(_assertThisInitialized(_this2));
-    _this2.state = {
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(AddItem).call(this, props));
+    _this3.addItemHandler = _this3.addItemHandler.bind(_assertThisInitialized(_this3));
+    _this3.state = {
       e: undefined
     };
-    return _this2;
+    return _this3;
   }
 
   _createClass(AddItem, [{

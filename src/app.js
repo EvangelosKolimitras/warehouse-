@@ -99,32 +99,28 @@ const FindItems = props => (
 
 
 // Items Component
-class Items extends React.Component{
-    render() {
-        return(
-            <div className="items">
-                <button
-                    onClick={this.props.deleItemsHandler}
-                    disabled={this.props.items.length === 0}
-                >
-                    Delete All items
-                </button>
-                {
-                    this.props.items.length === 0 ?
-                        <p>No items in the warehouse</p> :
-                        <ul>
-                {
-                   this.props.items.map( item => {
+const Items = props => (
+    <div className="items">
+        <button
+            onClick={this.props.deleItemsHandler}
+            disabled={this.props.items.length === 0}
+        >
+            Delete All items
+        </button>
+        {
+            this.props.items.length === 0 ?
+                <p>No items in the warehouse</p> :
+                <ul>
+        {
+           this.props.items.map( item => {
 
-                       return( <Item key={Math.random()} item={item} /> )
-                   })
-                }
-                </ul>
-                }
-            </div>
-        )
-    }
-}
+               return( <Item key={Math.random()} item={item} /> )
+           })
+        }
+        </ul>
+        }
+    </div>
+)
 
 // Item Component
 class Item extends React.Component {
