@@ -46,7 +46,7 @@ function (_React$Component) {
         main: props.main,
         sub: props.sub
       },
-      items: ['one', 'two', 'three', 'four', 'five']
+      items: []
     };
     return _this;
   }
@@ -54,6 +54,16 @@ function (_React$Component) {
   _createClass(App, [{
     key: "addItemHandler",
     value: function addItemHandler(item) {
+      if (!item) {
+        var msg = "Enter a valid item!";
+        console.log(msg);
+        return msg;
+      } else if (this.state.items.indexOf(item) > -1) {
+        var _msg = "This item already exists!";
+        console.log(_msg);
+        return _msg;
+      }
+
       this.setState(function (prevState) {
         return {
           items: [].concat(_toConsumableArray(prevState.items), [item])
@@ -63,8 +73,6 @@ function (_React$Component) {
   }, {
     key: "deleItemsHandler",
     value: function deleItemsHandler() {
-      var items = _toConsumableArray(this.state.items);
-
       this.setState(function () {
         return {
           items: []
@@ -112,9 +120,6 @@ function (_React$Component2) {
 
   _createClass(Title, [{
     key: "render",
-    // constructor(props){
-    //     super(props)
-    // }
     value: function render() {
       return React.createElement("div", {
         className: "title"
@@ -221,27 +226,29 @@ function (_React$Component6) {
 
     _this2 = _possibleConstructorReturn(this, _getPrototypeOf(AddItem).call(this, props));
     _this2.addItemHandler = _this2.addItemHandler.bind(_assertThisInitialized(_this2));
+    _this2.state = {
+      e: undefined
+    };
     return _this2;
   }
 
   _createClass(AddItem, [{
     key: "addItemHandler",
     value: function addItemHandler(event) {
-      event.preventDefault(); // event.target.elements.item.value
-
+      event.preventDefault();
       var item = event.target.elements.i.value;
-
-      if (item) {
-        this.props.addItemHandler(item);
-        event.target.elements.i.value = "";
-      }
+      var e = this.props.addItemHandler(item);
+      this.setState(function () {
+        return e;
+      });
+      event.target.elements.i.value = "";
     }
   }, {
     key: "render",
     value: function render() {
       return React.createElement("div", {
         className: "additem"
-      }, React.createElement("form", {
+      }, this.state.e && React.createElement("p", null, this.state.e), React.createElement("form", {
         onSubmit: this.addItemHandler
       }, React.createElement("input", {
         type: "text",

@@ -11,22 +11,30 @@ class App extends React.Component{
                 main : props.main,
                 sub: props.sub
             },
-            items: ['one','two','three','four','five']
+            items: []
         }
     }
 
     addItemHandler(item) {
+        if(!item) {
+            const msg = "Enter a valid item!"
+            console.log(msg);
+            return msg
+        }else if (this.state.items.indexOf(item) > -1) {
+            const msg = "This item already exists!"
+            console.log(msg);
+            return msg
+        }
 
-        this.setState( prevState => {
-            return {
-                items : [...prevState.items, item]
-            }
-        } )
+        this.setState( prevState => ({
+            items: [...prevState.items, item]
+        }) )
+
+
 
     }
 
     deleItemsHandler() {
-        const items = [...this.state.items]
         this.setState( () => {
             return {
                 items: []
@@ -41,24 +49,35 @@ class App extends React.Component{
 
     render(){
         return(
+
             <div>
                 <Title
                     main={this.state.title.main}
                     sub={this.state.title.sub}
                 />
-                <FindItems randomItemPicker={this.randomItemPicker} items={this.state.items} />
-                <Items deleItemsHandler={this.deleItemsHandler} items={this.state.items} />
-                <AddItem addItemHandler={this.addItemHandler}/>
+
+                <FindItems
+                    randomItemPicker={this.randomItemPicker}
+                    items={this.state.items}
+                />
+
+                <Items
+                    deleItemsHandler={this.deleItemsHandler}
+                    items={this.state.items}
+                />
+
+                <AddItem
+                    addItemHandler={this.addItemHandler}
+                />
+
             </div>
+
         )
     }
 }
 
 // Title Component
 class Title extends React.Component{
-    // constructor(props){
-    //     super(props)
-    // }
     render(){
         return(
             <div className="title">
@@ -128,26 +147,24 @@ class AddItem extends React.Component {
     constructor(props){
         super(props)
         this.addItemHandler = this.addItemHandler.bind(this)
+        this.state = {
+            e : undefined
+        }
     }
 
     addItemHandler(event){
         event.preventDefault()
-        // event.target.elements.item.value
         const item = event.target.elements.i.value
-        if(item){
-            this.props.addItemHandler(item)
-            event.target.elements.i.value = ""
-        }
+        const e = this.props.addItemHandler(item)
+
+        this.setState( () => e )
+        event.target.elements.i.value = ""
     }
 
     render() {
         return(
             <div className="additem">
-                {
-                    /*
-                        TODO: Add item form here
-                    */
-                }
+                {this.state.e && <p>{this.state.e}</p>}
                 <form onSubmit={this.addItemHandler}>
                     {/* below i = item */}
                     <input type="text" name="i" />
