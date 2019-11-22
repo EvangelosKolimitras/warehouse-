@@ -46,7 +46,7 @@ function (_React$Component) {
         main: props.main,
         sub: props.sub
       },
-      items: []
+      items: props.items
     };
     return _this;
   }
@@ -104,8 +104,11 @@ function (_React$Component) {
   }]);
 
   return App;
-}(React.Component); // Title Component
+}(React.Component);
 
+App.defaultProps = {
+  items: [1, 2, 3, 4, 5]
+}; // Title Component
 
 var Title = function Title(props) {
   return React.createElement(React.Fragment, null, React.createElement("h1", null, props.main), React.createElement("h5", null, props.sub));
@@ -185,6 +188,6 @@ function (_React$Component2) {
 }(React.Component);
 
 ReactDOM.render(React.createElement(App, {
-  main: "Warehouse",
-  sub: "A super warehouse "
+  main: "EK-Warehouse",
+  sub: "An Evangelos Kolimitras warehouse "
 }), document.getElementById('root'));

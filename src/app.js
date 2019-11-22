@@ -11,7 +11,7 @@ class App extends React.Component{
                 main : props.main,
                 sub: props.sub
             },
-            items: []
+            items: props.items
         }
     }
 
@@ -30,17 +30,10 @@ class App extends React.Component{
             items: [...prevState.items, item]
         }) )
 
-
-
     }
 
-    deleItemsHandler() {
-        this.setState( () => {
-            return {
-                items: []
-            }
-        } );
-    }
+    deleItemsHandler() { this.setState( () => ({ items: [] }) ); }
+
 
     randomItemPicker() {
         const item = this.state.items[Math.round(Math.random() * this.state.items.length)]
@@ -74,6 +67,10 @@ class App extends React.Component{
 
         )
     }
+}
+
+App.defaultProps = {
+    items : [1,2,3,4,5]
 }
 
 // Title Component
@@ -164,8 +161,8 @@ class AddItem extends React.Component {
 
 ReactDOM.render(
     <App
-        main="Warehouse"
-        sub="A super warehouse "
+        main="EK-Warehouse"
+        sub="An Evangelos Kolimitras warehouse "
     />,
     document.getElementById('root')
 )
