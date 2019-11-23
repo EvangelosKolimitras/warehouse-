@@ -12,9 +12,29 @@ class App extends React.Component{
                 main : props.main,
                 sub: props.sub
             },
-            items: props.items
+            items: []
         }
     }
+
+    // Locale storage added to simulate a database when the app is initialized
+    componentDidMount() {
+        try {
+            const items = JSON.parse(localStorage.getItem('items'))
+            if(items) this.setState( () => ({items}) )
+
+        } catch (error) {
+            // We do nothing
+        }
+    }
+
+    // Locale storage is being used to simulate the "adding data to a database"
+    // when the component updates
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.items.length !== this.state.items.length){
+            return localStorage.setItem('items', JSON.stringify(this.state.items))
+        }
+    }
+
 
     addItemHandler(item) {
         if(!item) {
@@ -27,9 +47,11 @@ class App extends React.Component{
             return msg
         }
 
+
         this.setState( prevState => ({
             items: [...prevState.items, item]
         }) )
+
 
     }
 
@@ -75,10 +97,6 @@ class App extends React.Component{
     }
 }
 
-App.defaultProps = {
-    items : [1,2,3,4,5]
-}
-
 // Title Component
 const Title = props => (
     <>
@@ -106,7 +124,7 @@ const Items = props => (
     <>
         <button
             onClick={props.deleItemsHandler}
-            disabled={props.items.length === 0}
+            // disabled={props.items.length === 0}
         >
             Delete All items
         </button>

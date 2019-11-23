@@ -47,12 +47,35 @@ function (_React$Component) {
         main: props.main,
         sub: props.sub
       },
-      items: props.items
+      items: []
     };
     return _this;
-  }
+  } // Locale storage added to simulate a database when the app is initialized
+
 
   _createClass(App, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      try {
+        var items = JSON.parse(localStorage.getItem('items'));
+        if (items) this.setState(function () {
+          return {
+            items: items
+          };
+        });
+      } catch (error) {// We do nothing
+      }
+    } // Locale storage is being used to simulate the "adding data to a database"
+    // when the component updates
+
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevState.items.length !== this.state.items.length) {
+        return localStorage.setItem('items', JSON.stringify(this.state.items));
+      }
+    }
+  }, {
     key: "addItemHandler",
     value: function addItemHandler(item) {
       if (!item) {
@@ -117,11 +140,8 @@ function (_React$Component) {
   }]);
 
   return App;
-}(React.Component);
+}(React.Component); // Title Component
 
-App.defaultProps = {
-  items: [1, 2, 3, 4, 5]
-}; // Title Component
 
 var Title = function Title(props) {
   return React.createElement(React.Fragment, null, React.createElement("h1", null, props.main), React.createElement("h5", null, props.sub));
@@ -138,8 +158,8 @@ var FindItems = function FindItems(props) {
 
 var Items = function Items(props) {
   return React.createElement(React.Fragment, null, React.createElement("button", {
-    onClick: props.deleItemsHandler,
-    disabled: props.items.length === 0
+    onClick: props.deleItemsHandler // disabled={props.items.length === 0}
+
   }, "Delete All items"), props.items.length === 0 ? React.createElement("p", null, "No items in the warehouse") : React.createElement("ul", null, props.items.map(function (item) {
     return React.createElement(Item, {
       key: Math.random(),
