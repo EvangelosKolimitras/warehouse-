@@ -1,3 +1,5 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 // Application Component
 class App extends React.Component{
@@ -15,7 +17,6 @@ class App extends React.Component{
             items: []
         }
     }
-
     // Locale storage added to simulate a database when the app is initialized
     componentDidMount() {
         try {
