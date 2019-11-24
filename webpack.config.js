@@ -6,11 +6,21 @@ module.exports = {
 		path     : path.resolve( __dirname , 'public' ) ,
 		filename : 'bundle.js'
 	} ,
-	mode   : 'development' ,
+	mode : 'development' ,
+	// module : {
+	// 	rules : [
+	// 	  {test : /\.js$/ , exclude : /node_modules/ , loader : 'babel-loader'}
+	// 	]
+	// }
+
 	module : {
 		rules : [
-		  {test : /\.js$/ , exclude : /node_modules/ , loader : 'babel-loader'}
+			{
+				loader  : 'babel-loader' ,
+				test    : /\.j(s || sx)$/ ,
+				exclude : /node_modules /
+			}
 		]
-	  }
+	}
 
 }
