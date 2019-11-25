@@ -1,0 +1,42 @@
+.AddItem {
+    // background-color: red;
+    padding: $padding-m;
+
+    &>form {
+        &>input {
+            background-color: inherit;
+            padding: .5rem;
+            outline: none;
+            border: none;
+            color: $white;
+            opacity: .1;
+            animation-fill-mode: backwards;
+            animation: blinking 3.5s ease-in-out infinite;
+            &::-webkit-input-placeholder {
+                text-align: center;
+            }
+            &:focus {
+                border-bottom: .1rem solid #322222;
+                animation-play-state: paused;
+            }
+        }
+        &>button {
+            background-color: inherit;
+            padding: .5rem;
+            outline: none;
+            border: none;
+        }
+    }
+}
+
+@keyframes blinking {
+    0%{
+        opacity: .1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .1;
+    }
+}

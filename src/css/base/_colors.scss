@@ -1,5 +1,7 @@
-$primary-color: rgb(31, 15, 46);
+$primary-color: rgb(4, 10, 29);
 $title-color : lighten($primary-color, 15%);
-$main-background: rgb(17, 4, 29);
+$main-background: lighten($primary-color, 3%);
 $disColor: rgb(31, 15, 46);
-$item-color: rgb(78, 26, 126);
+$item-color: darken($main-background,2%);
+$white: #ffffff;
+$browngold: #322222

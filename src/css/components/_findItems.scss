@@ -12,10 +12,10 @@
             background: none;
             width: 20rem;
             padding: $padding-s;
-            border: .1rem solid #322222;
+            border: .1rem solid $browngold;
             border-radius: 1rem;
             letter-spacing: .25rem;
-            color: #322222;
+            color: $browngold;
             transition: .5s;
 
             &:hover{

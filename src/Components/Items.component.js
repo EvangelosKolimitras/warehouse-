@@ -5,15 +5,13 @@ import Item from './Item.component'
 const Items = props => (
     <>
         <div>
-            { props.items.length === 0
-                ? null
-                : <button
-                    className="btn__deleteAll"
-                    onClick={ props.deleItemsHandler }
-                    disabled={ props.items.length === 0 }
-                > Thrash
-                </button>
-            }
+            <button
+                className="btn__deleteAll"
+                onClick={ props.deleItemsHandler }
+                disabled={ props.items.length === 0 }
+            > Thrash
+            </button>
+
         </div>
         <div className="main__items">
 

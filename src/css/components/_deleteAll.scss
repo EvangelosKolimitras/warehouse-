@@ -8,17 +8,4 @@
     background-color: inherit;
     color: $title-color;
     outline: none;
-    opacity: 1;
-
-    // animation-fill-mode: forwards;
-    animation: fadeIn .4s ease-in-out 1;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }

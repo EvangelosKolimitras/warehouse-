@@ -17,12 +17,12 @@ export class AddItem extends Component {
 
     render() {
         return (
-            <div className="main__addItem">
+            <div className="AddItem">
                 {this.state.e && <p>{this.state.e}</p>}
                 <form onSubmit={this.addItemHandler}>
                     {/* below i = item */}
-                    <input type="text" name="i" />
-                    <button>Add Item</button>
+                    <input type="text" name="i" placeholder="Add an item here"/>
+                    {/* <button> Add</button> */}
                 </form>
             </div>
         )
