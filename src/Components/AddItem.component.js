@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 // Add Item Component
-export class AddItem extends React.Component {
+export class AddItem extends Component {
 
     constructor(props){
         super(props)

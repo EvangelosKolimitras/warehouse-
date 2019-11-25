@@ -1,10 +1,11 @@
 const path = require( 'path' )
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	entry  : './src/app.js' ,
 	output : {
-		path     : path.resolve( __dirname , 'public' ) ,
-		filename : 'bundle.js'
+		path     : path.resolve( __dirname , './public' ) ,
+		filename : './src/bundle.js'
 	} ,
 
 	module : {
@@ -12,15 +13,25 @@ module.exports = {
 			{
 				loader  : 'babel-loader' ,
 				test    : /\.js$/ ,
-				exclude : /node_modules /
+				exclude : /node_modules/
 			}
 		]
 	},
 
+	plugins: [
+		new HTMLWebpackPlugin({
+			title: "Title",
+			template: "src/index.html",
+			filename:"index.html"
+		}),
+	],
+
 	devServer: {
 		contentBase: "./public",
-		hot: true
+		hot: true,
+		port : 9999
 	},
 
-	mode : 'development'
+	mode : 'development',
+	devtool: "cheap-module-eval-source-map"
 }

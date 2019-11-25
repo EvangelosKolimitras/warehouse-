@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { Title, FindItems, AddItem, Items } from './Components'
 
 // Application Component
-export default class App extends React.Component{
+export default class App extends Component{
     constructor(props) {
         super(props)
         this.addItemHandler = this.addItemHandler.bind(this)
@@ -17,11 +17,13 @@ export default class App extends React.Component{
             items: []
         }
     }
+
     // Locale storage added to simulate a database when the app is initialized
     componentDidMount() {
         try {
             const items = JSON.parse(localStorage.getItem('items'))
             if(items) this.setState( () => ({items}) )
+            console.log('Mounted');
 
         } catch (error) {
             // We do nothing
