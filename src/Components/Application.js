@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Title, FindItems, AddItem, Items } from './Components'
+import ItemModal from './ItemModal'
 
 // Application Component
 export default class App extends Component{
@@ -9,7 +10,8 @@ export default class App extends Component{
             main : 'EK-Warehouse',
             sub: 'An Evangelos Kolimitras warehouse'
         },
-        items: []
+        items: [],
+        selectedItem : undefined
     }
 
     addItemHandler = i => {
@@ -26,7 +28,23 @@ export default class App extends Component{
         items: prevState.items.filter(i => i !== item )
     }))
 
-    randomItemPicker = () => console.log(this.state.items[Math.round(Math.random() * this.state.items.length)])
+    // Opening modal
+    randomItemPicker = () => {
+        const random = Math.round(Math.random() * this.state.items.length)
+        const item =this.state.items[random]
+        this.setState( () => {
+            return {
+                selectedItem : item
+            }
+        })
+    }
+
+    // Closing modal
+    closeModalHandler = () => {
+        this.setState( () => ({
+            selectedItem : undefined
+        }) )
+    }
 
     render(){
         return(
@@ -51,6 +69,10 @@ export default class App extends Component{
                     addItemHandler={this.addItemHandler}
                 />
 
+                <ItemModal
+                    selectedItem={this.state.selectedItem}
+                    closeModalHandler={this.closeModalHandler}
+                />
             </div>
 
         )
