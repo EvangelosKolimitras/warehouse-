@@ -1,5 +1,3 @@
-$bg : green;
-
-* {
-    color: $bg;
-}
+@import './base/colors';
+@import './base//base';
+@import './components/header'

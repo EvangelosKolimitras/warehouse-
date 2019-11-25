@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Title, FindItems, AddItem, Items } from './Components'
+import { Header, FindItems, AddItem, Items } from './Components'
 import ItemModal from './ItemModal'
 
 // Application Component
@@ -49,7 +49,7 @@ export default class App extends Component{
     render(){
         return(
             <div>
-                <Title
+                <Header
                     main={this.state.title.main}
                     sub={this.state.title.sub}
                 />

@@ -1,7 +1,7 @@
-import Title from './Title.component'
+import Header from './Header.component'
 import FindItems from './FindItems.component'
 import AddItem from './AddItem.component'
 import Items from './Items.component'
 import Item from './Item.component'
 
-export {Title , FindItems , AddItem , Items , Item}
+export {Header , FindItems , AddItem , Items , Item}
