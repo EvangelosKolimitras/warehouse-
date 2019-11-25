@@ -1,5 +1,5 @@
 import React from 'react'
-import { Title, FindItems, AddItem, Items } from './Components/Components'
+import { Title, FindItems, AddItem, Items } from './Components'
 
 // Application Component
 export default class App extends React.Component{
@@ -72,7 +72,7 @@ export default class App extends React.Component{
 
     render(){
         return(
-            <>
+            <div>
                 <Title
                     main={this.state.title.main}
                     sub={this.state.title.sub}
@@ -93,7 +93,7 @@ export default class App extends React.Component{
                     addItemHandler={this.addItemHandler}
                 />
 
-            </>
+            </div>
 
         )
     }

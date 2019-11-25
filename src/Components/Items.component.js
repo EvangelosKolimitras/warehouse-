@@ -6,7 +6,7 @@ const Items = props => (
     <div>
         <button
             onClick={props.deleItemsHandler}
-            // disabled={props.items.length === 0}
+            disabled={props.items.length === 0}
         >
             Delete All items
         </button>
