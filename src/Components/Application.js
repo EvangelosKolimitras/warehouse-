@@ -7,8 +7,8 @@ export default class App extends Component{
 
     state = {
         title: {
-            main : 'EK-Warehouse',
-            sub: 'An Evangelos Kolimitras warehouse'
+            main : 'EK - Warehouse',
+            sub: 'Kolimitras Warehouse Software'
         },
         items: [],
         selectedItem : undefined
@@ -48,7 +48,7 @@ export default class App extends Component{
 
     render(){
         return(
-            <div>
+            <>
                 <Header
                     main={this.state.title.main}
                     sub={this.state.title.sub}
@@ -73,7 +73,7 @@ export default class App extends Component{
                     selectedItem={this.state.selectedItem}
                     closeModalHandler={this.closeModalHandler}
                 />
-            </div>
+            </>
 
         )
     }

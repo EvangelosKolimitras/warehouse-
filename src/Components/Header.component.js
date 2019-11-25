@@ -11,8 +11,16 @@ const styles = {
 // Header Component
 const Header = props => (
     <div className={styles.header.header}>
-        <h1 className={styles.header.title}>{props.main}</h1>
-        <h5 className={styles.header.subtitle}>{props.sub}</h5>
+        <div className="container">
+            <h1
+                className={styles.header.title}>
+                    {props.main}
+            </h1>
+            <h5
+                className={styles.header.subtitle}>
+                    {props.sub}
+            </h5>
+        </div>
     </div>
 )
 
