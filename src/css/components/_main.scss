@@ -1,0 +1,37 @@
+.main {
+    background-color: $main-background;
+    height: 80vh;
+    text-align: center;
+
+    &__container {
+        // border: 1px solid red;
+        margin: 0 auto;
+        width: 66%;
+        height: 50vh;
+    }
+
+    &__findItem {
+        padding: $padding-m;
+
+        &>button {
+            background: none;
+            width: 80%;
+            padding: $padding-s;
+            border: .1rem solid #322222;
+            border-radius: 1rem;
+            letter-spacing: .25rem;
+            color: #322222;
+            transition: .5s;
+
+            &:hover{
+                transform: translateY(-.5rem);
+            }
+        }
+    }
+    &__items {
+        background-color: green;
+    }
+    &__addItem {
+        background-color: orange;
+    }
+}

@@ -17,7 +17,7 @@ export class AddItem extends Component {
 
     render() {
         return (
-            <div>
+            <div className="main__addItem">
                 {this.state.e && <p>{this.state.e}</p>}
                 <form onSubmit={this.addItemHandler}>
                     {/* below i = item */}

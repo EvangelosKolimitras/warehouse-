@@ -54,20 +54,26 @@ export default class App extends Component{
                     sub={this.state.title.sub}
                 />
 
-                <FindItems
-                    randomItemPicker={this.randomItemPicker}
-                    items={this.state.items}
-                />
+                <div className="main">
+                    <div className="container">
+                        <div className="main__container">
+                            <FindItems
+                                randomItemPicker={this.randomItemPicker}
+                                items={this.state.items}
+                            />
 
-                <Items
-                    deleItemsHandler={this.deleItemsHandler}
-                    items={this.state.items}
-                    deleteItemHandler={this.deleteItemHandler}
-                />
+                            <Items
+                                deleItemsHandler={this.deleItemsHandler}
+                                items={this.state.items}
+                                deleteItemHandler={this.deleteItemHandler}
+                            />
 
-                <AddItem
-                    addItemHandler={this.addItemHandler}
-                />
+                            <AddItem
+                                addItemHandler={this.addItemHandler}
+                            />
+                        </div>
+                    </div>
+                </div>
 
                 <ItemModal
                     selectedItem={this.state.selectedItem}

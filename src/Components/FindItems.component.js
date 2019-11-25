@@ -2,7 +2,7 @@ import React from 'react'
 
 // FindItems action btn Component
 const FindItems = props => (
-    <div>
+    <div className="main__findItem">
         <button
             disabled={props.items.length === 0}
             onClick={props.randomItemPicker}
