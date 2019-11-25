@@ -2,5 +2,9 @@
 @import './base/variables';
 @import './base/utils';
 @import './base/base';
+
+
 @import './components/header';
-@import './components/main'
+@import './Components/Items';
+@import './components/deleteAll';
+@import './components/findItems';

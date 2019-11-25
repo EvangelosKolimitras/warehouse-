@@ -1,0 +1,71 @@
+.noItemsP {
+    color: rgba(80, 65, 65, 0.336);
+
+}
+
+.main__items {
+    height: 50rem;
+    overflow: hidden;
+    position: relative;
+
+    &>ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        overflow-y: scroll;
+
+    padding: 0 !important;
+
+        &::-webkit-scrollbar {
+            width: .3em;
+        }
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 .6rem $item-color;
+            border-top-right-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: rgb(255, 69, 13);
+          outline: 1px solid rgb(15, 60, 104);
+          border-top-right-radius: 2rem;
+          border-bottom-right-radius: 2rem;
+        }
+
+        &>li{
+            position: relative;
+            background-color: $item-color;
+            text-align: left;
+            padding: $padding-s;
+            border-bottom: .1rem solid #222;
+            transition: .35s ease-in-out;
+
+            &>button {
+                position: absolute;
+                right: .5rem;
+                border: none;
+                border-radius: 50%;
+                text-align: center;
+                background-color: transparent;
+                transition: .3s;
+
+                &:hover {
+                    background-color: #fff;
+                }
+            }
+
+            &:hover {
+                transform: translateY(-.5rem);
+                cursor: pointer;
+                border: .1rem solid #222;
+            }
+
+        }
+    }
+}

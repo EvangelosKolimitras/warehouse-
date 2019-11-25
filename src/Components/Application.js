@@ -56,7 +56,7 @@ export default class App extends Component{
 
                 <div className="main">
                     <div className="container">
-                        <div className="main__container">
+                        <div>
                             <FindItems
                                 randomItemPicker={this.randomItemPicker}
                                 items={this.state.items}
@@ -71,6 +71,7 @@ export default class App extends Component{
                             <AddItem
                                 addItemHandler={this.addItemHandler}
                             />
+
                         </div>
                     </div>
                 </div>

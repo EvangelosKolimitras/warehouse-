@@ -10,7 +10,7 @@ const Item = props => (
                     props.deleteItemHandler(props.item)
                 }
             }>
-                rm
+                x
             </button>
     </li>
 

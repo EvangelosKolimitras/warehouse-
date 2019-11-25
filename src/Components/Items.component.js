@@ -4,9 +4,10 @@ import Item from './Item.component'
 
 const Items = props => (
     <div className="main__items">
+
         {
             props.items.length === 0
-                ? <p>No items in the warehouse</p>
+                ? <p className="noItemsP">No items in the warehouse</p>
                 :   <ul> {
                         props.items.map(
                             item => (
@@ -16,12 +17,18 @@ const Items = props => (
                                     item={item} />
                             )
                         )
-                        } </ul>
+                }</ul>
         }
-        <button
-            onClick={props.deleItemsHandler}
-            disabled={props.items.length === 0} > Delete All items
+        { props.items.length === 0
+            ? null
+            : <button
+                className="btn__deleteAll"
+                onClick={ props.deleItemsHandler }
+                disabled={ props.items.length === 0 }
+            > Delete All items
         </button>
+        }
+
     </div>
 )
 
