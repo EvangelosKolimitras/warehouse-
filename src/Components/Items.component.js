@@ -3,33 +3,37 @@ import React from 'react'
 import Item from './Item.component'
 
 const Items = props => (
-    <div className="main__items">
+    <>
+        <div>
+            { props.items.length === 0
+                ? null
+                : <button
+                    className="btn__deleteAll"
+                    onClick={ props.deleItemsHandler }
+                    disabled={ props.items.length === 0 }
+                > Thrash
+                </button>
+            }
+        </div>
+        <div className="main__items">
 
-        {
-            props.items.length === 0
-                ? <p className="noItemsP">No items in the warehouse</p>
-                :   <ul> {
-                        props.items.map(
-                            item => (
-                                <Item
-                                    key={Math.random()}
-                                    deleteItemHandler={props.deleteItemHandler}
-                                    item={item} />
+            {
+                props.items.length === 0
+                    ? <p className="noItemsP">No items in the warehouse</p>
+                    :   <ul> {
+                            props.items.map(
+                                item => (
+                                    <Item
+                                        key={Math.random()}
+                                        deleteItemHandler={props.deleteItemHandler}
+                                        item={item}
+                                    />
+                                )
                             )
-                        )
-                }</ul>
-        }
-        { props.items.length === 0
-            ? null
-            : <button
-                className="btn__deleteAll"
-                onClick={ props.deleItemsHandler }
-                disabled={ props.items.length === 0 }
-            > Delete All items
-        </button>
-        }
-
-    </div>
+                    }</ul>
+            }
+        </div>
+    </>
 )
 
 export default Items
