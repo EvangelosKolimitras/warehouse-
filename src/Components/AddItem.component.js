@@ -3,16 +3,11 @@ import React, {Component} from 'react'
 // Add Item Component
 export class AddItem extends Component {
 
-    constructor(props){
-        super(props)
-        this.addItemHandler = this.addItemHandler.bind(this)
-        this.state = {
-            e : undefined
-        }
-
+    state = {
+        e : undefined
     }
 
-    addItemHandler(event){
+    addItemHandler = event => {
         event.preventDefault()
         const item = event.target.elements.i.value
         const e = this.props.addItemHandler(item)
@@ -22,7 +17,7 @@ export class AddItem extends Component {
     }
 
     render() {
-        return(
+        return (
             <div>
                 {this.state.e && <p>{this.state.e}</p>}
                 <form onSubmit={this.addItemHandler}>
@@ -34,6 +29,5 @@ export class AddItem extends Component {
         )
     }
 }
-
 
 export default AddItem
