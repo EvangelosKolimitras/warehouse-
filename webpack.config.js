@@ -42,6 +42,6 @@ module.exports = {
 		port
 	},
 
-	mode : 'development',
+	mode : 'production',
 	devtool: "cheap-module-eval-source-map"
 }

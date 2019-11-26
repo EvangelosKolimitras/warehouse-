@@ -19,9 +19,9 @@ export class AddItem extends Component {
         return (
             <div className="AddItem">
                 {this.state.e && <p>{this.state.e}</p>}
-                <form onSubmit={this.addItemHandler}>
+                <form autoComplete='off' onSubmit={this.addItemHandler}>
                     {/* below i = item */}
-                    <input type="text" name="i" placeholder="Add an item here"/>
+                    <input type="text" name="i" placeholder="Add an item here" autoFocus />
                     {/* <button> Add</button> */}
                 </form>
             </div>

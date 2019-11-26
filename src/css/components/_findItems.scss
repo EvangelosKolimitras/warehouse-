@@ -1,5 +1,5 @@
 .main {
-    background-color: $main-background;
+    background-color:darken($browngold,5%);
     height: 80vh;
     text-align: center;
 
@@ -16,10 +16,13 @@
             border-radius: 1rem;
             letter-spacing: .25rem;
             color: $browngold;
-            transition: .5s;
+            transition: .75s;
+            outline: none;
 
             &:hover{
                 transform: translateY(-.5rem);
+                color: lighten($browngold, 25%);
+                border-color: lighten($browngold, 25%);
             }
         }
     }

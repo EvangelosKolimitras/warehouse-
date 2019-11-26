@@ -1,0 +1,68 @@
+.ReactModalPortal {
+
+    &> div { opacity: 0; }
+
+    &> .ReactModal__Overlay {
+
+        transition: opacity .7s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--after-open {
+            opacity: 1;
+        }
+
+        &--before-close {
+            opacity: 0;
+        }
+
+    }
+}
+
+.Modal {
+    background-color: $browngold;
+    max-width: 50rem;
+    padding: $padding-m;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem #1b1b1b;
+    outline: none;
+    text-align: center;
+    animation-fill-mode: backwards;
+    transform: translateY(0);
+    animation: translateDown .7s ease-in-out;
+
+    &__title {
+        color: lighten($browngold,45%);
+    }
+    &__body {
+        color: lighten($browngold,25%);
+        word-break: break-all;
+    }
+    &__btn {
+        background: none;
+        width: 20rem;
+        padding: $padding-s;
+        border: .1rem solid $browngold;
+        border-radius: 1rem;
+        letter-spacing: .25rem;
+        color: darken($white, 25%);
+        transition: .75s;
+        outline: none;
+
+        &:hover{
+            transform: translateY(-.085rem);
+            color: lighten($browngold, 25%);
+            border-color: lighten($browngold, 25%);
+        }
+    }
+}
+
+@keyframes translateDown {
+    from {
+        transform: translateY(-15%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
