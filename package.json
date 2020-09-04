@@ -18,8 +18,8 @@
   },
   "keywords": [],
   "dependencies": {
-    "@babel/cli": "^7.7.4",
-    "@babel/preset-react": "^7.7.4",
+    "@babel/cli": "^7.10.5",
+    "@babel/preset-react": "^7.10.4",
     "eslint": "^6.7.1",
     "node-sass": "^4.13.0",
     "normalize.css": "^8.0.1",
